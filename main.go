@@ -9,7 +9,9 @@ import (
 func main() {
 	var number int
 	tempNumbers := make([]int, 0, 0)
+	//fmt.Scan(&number)
 	number = 26712
+
 	for number > 0 {
 		tempNumbers = append(tempNumbers, number%10)
 		number = number / 10
@@ -19,11 +21,15 @@ func main() {
 	for i, v := range tempNumbers {
 		numbers[lentempNumbers-(i+1)] = v
 	}
+
 	lenNumbers := len(numbers)
+
 	signs := make([]int64, lenNumbers-1, cap(numbers)-1)
 	signsResult := make([]int64, lenNumbers-1, cap(numbers)-1)
 	lenSigns := len(signs)
+
 	isResult := false
+
 	for i := 0; i < powInt(2, lenSigns); i++ {
 
 		runs := []rune(strconv.FormatInt(int64(i), 2))
